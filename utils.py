@@ -326,6 +326,71 @@ def encode_image(image_path):
   with open(image_path, "rb") as image_file:
     return base64.b64encode(image_file.read()).decode('utf-8')
 
+def resize_image_and_encode_image(image_path: str, max_image_size_mb: float):
+    import math
+    from io import BytesIO
+    from PIL import Image
+
+    image = Image.open(image_path)
+    image_format = "png"
+    max_hw, min_hw = max(image.size), min(image.size)
+    aspect_ratio = max_hw / min_hw
+    max_len, min_len = 1024, 1024
+    shortest_edge = int(min(max_len / aspect_ratio, min_len, min_hw))
+    longest_edge = int(shortest_edge * aspect_ratio)
+    W, H = image.size
+    if longest_edge != max(image.size):
+        if H > W:
+            H, W = longest_edge, shortest_edge
+        else:
+            H, W = shortest_edge, longest_edge
+        image = image.resize((W, H))
+
+    image_bytes = BytesIO()
+    image.save(image_bytes, format="PNG")
+    if max_image_size_mb:
+        target_size_bytes = max_image_size_mb * 1024 * 1024
+
+        current_size_bytes = image_bytes.tell()
+        if current_size_bytes > target_size_bytes:
+            resize_factor = (target_size_bytes / current_size_bytes) ** 0.5
+            new_width = math.floor(image.width * resize_factor)
+            new_height = math.floor(image.height * resize_factor)
+            image = image.resize((new_width, new_height))
+
+            image_bytes = BytesIO()
+            image.save(image_bytes, format="PNG")
+            current_size_bytes = image_bytes.tell()
+
+        image_bytes.seek(0)
+
+    return base64.b64encode(image_bytes.read()).decode('utf-8')
+
+def get_image_base64_str(images_base_dir: str, image_hash: str):
+    max_image_size_mb = 5 / 1.5 # Anthropic's max image size is 5MB in base64 encoded format.
+    try: # Use PNG format
+        image_path = os.path.join(images_base_dir, f"{image_hash}.png")
+        return resize_image_and_encode_image(image_path, max_image_size_mb)
+    except Exception as e:
+        print(f"Error getting image {image_hash}: {e}")
+        try: # Use JPG format
+            image_path = f"/home/babychou/arena-hard-70k-sample-images/{image_hash}.jpg"
+            return resize_image_and_encode_image(image_path, max_image_size_mb)
+        except Exception as e:
+            print(f"Error getting JPG image {image_hash}: {e}")
+            try:
+                # Make a subprocess call to gsutil
+                import subprocess
+                cmd = f"gsutil cp gs://arena_user_content/serve_images/{image_hash}.jpg /home/babychou/arena-hard-70k-sample-images"
+                subprocess.run(cmd, shell=True, check=True)
+                
+                # Try to resize and encode the image again
+                image_path = f"/home/babychou/arena-hard-70k-sample-images/{image_hash}.jpg"
+                return resize_image_and_encode_image(image_path, max_image_size_mb)
+            except Exception as sub_e:
+                print(f"Error in gsutil subprocess or subsequent encoding: {sub_e}")
+                raise sub_e
+
 def _content_to_openai_format(content: Union[str, Tuple[str, List[Dict[str, str]]]], images_base_dir: str) -> Union[str, List[Dict[str, str]]]:
     if isinstance(content, str):
         return content
@@ -334,8 +399,7 @@ def _content_to_openai_format(content: Union[str, Tuple[str, List[Dict[str, str]
         text, images = content
         content_in_openai_format.append({"type": "text", "text": text})
         for image in images:
-            image_path = os.path.join(images_base_dir, f"{image}.png")
-            image_base64_str = encode_image(image_path)
+            image_base64_str = get_image_base64_str(images_base_dir, image)
             content_in_openai_format.append({"type": "image_url", "image_url": {"url": f"data:image/png;base64,{image_base64_str}"}})
         return content_in_openai_format
     else:
@@ -347,13 +411,79 @@ def chat_completion_litellm(model, messages, temperature, max_tokens):
     output = API_ERROR_OUTPUT
     for _ in range(API_MAX_RETRY):
         try:
-            response = litellm.completion(model=model, messages=messages, temperature=temperature, max_tokens=max_tokens)
+            if "gemini" in model:
+                extra_kwargs = {
+                    "safety_settings": [
+                        {
+                            "category": "HARM_CATEGORY_HARASSMENT",
+                            "threshold": "BLOCK_NONE"
+                        },
+                        {
+                            "category": "HARM_CATEGORY_HATE_SPEECH",
+                            "threshold": "BLOCK_NONE"
+                        },
+                        {
+                            "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                            "threshold": "BLOCK_NONE"
+                        },
+                        {
+                            "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                            "threshold": "BLOCK_NONE"
+                        },
+                    ]
+                }
+            else:
+                extra_kwargs = {}
+            response = litellm.completion(model=model, messages=messages, temperature=temperature, max_tokens=max_tokens, **extra_kwargs)
             output = response["choices"][0]["message"]["content"]
+            break
+        except Exception as e:
+            print(e)
+            time.sleep(60)
+    
+    return output
+
+def chat_completion_reka(model, messages, temperature, max_tokens):
+    from reka.client import Reka
+    from reka import ChatMessage, TypedMediaContent, TypedText
+    import os
+
+    client = Reka()
+
+    # Convert messages in OPENAI to Reka format
+    reka_messages = []
+    for msg in messages:
+        role = msg['role']
+        content = msg['content']
+        if isinstance(content, list):
+            content_reka = []
+            for part in content:
+                if part["type"] == "text":
+                    content_reka.append({"type": "text", "text": part["text"]})
+                elif part["type"] == "image_url":
+                    content_reka.append({"type": "image_url", "image_url": part["image_url"]["url"]})
+                else:
+                    raise ValueError(f"Unknown content type: {part['type']}")
+            reka_messages.append({"content": content_reka, "role": "user"})
+        else:
+            reka_messages.append({"content": content, "role": role})
+
+    output = API_ERROR_OUTPUT
+    for _ in range(API_MAX_RETRY):
+        try:
+            response = client.chat.create(
+                model=model,
+                messages=reka_messages,
+                temperature=temperature,
+                max_tokens=max_tokens
+            )
+            output = response.responses[0].message.content
             break
         except Exception as e:
             print(e)
     
     return output
+    
 
 def get_filepath(args_filepath: str, default_filepath: str):
     if args_filepath:

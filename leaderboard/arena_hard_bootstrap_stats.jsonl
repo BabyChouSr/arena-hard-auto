@@ -1,0 +1,6 @@
+{"model": "gpt-4o", "score": 1220, "CI": "(-96.00, +23.00)", "avg_tokens": 397.0, "date": "2024-09-08", "lower": 1124, "upper": 1243}
+{"model": "claude-3-5-sonnet-20240620", "score": 1023, "CI": "(-90.00, +16.00)", "avg_tokens": 289.0, "date": "2024-09-08", "lower": 933, "upper": 1039}
+{"model": "gpt-4-turbo", "score": 1001, "CI": "(-71.00, +7.00)", "avg_tokens": 307.0, "date": "2024-09-08", "lower": 930, "upper": 1008}
+{"model": "gpt-4o-mini", "score": 1000, "CI": "(-72.00, +4.00)", "avg_tokens": 270.0, "date": "2024-09-08", "lower": 928, "upper": 1004}
+{"model": "claude-3-opus-20240229", "score": 787, "CI": "(-99.00, +13.00)", "avg_tokens": 236.0, "date": "2024-09-08", "lower": 688, "upper": 800}
+{"model": "claude-3-haiku-20240307", "score": 619, "CI": "(-123.00, +24.00)", "avg_tokens": 196.0, "date": "2024-09-08", "lower": 496, "upper": 643}

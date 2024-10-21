@@ -9,6 +9,10 @@ import os
 import re
 import time
 import concurrent.futures
+import multiprocessing
+from dataclasses import dataclass
+from multiprocessing import Process
+from typing import List, Dict, Any, Optional
 
 import tiktoken
 import shortuuid
@@ -28,10 +32,12 @@ from utils import (
     chat_completion_mistral,
     http_completion_gemini,
     chat_completion_cohere,
+    chat_completion_reka,
     reorg_answer_file,
     OPENAI_MODEL_LIST,
     temperature_config,
-    _content_to_openai_format
+    _content_to_openai_format,
+    get_filepath
 )
 
 
@@ -55,6 +61,7 @@ def get_answer(
     for i in range(num_choices):
         turns = []
         for j in range(len(question["turns"])):
+            print(question["question_id"])
             conv.append({"role": "user", "content": _content_to_openai_format(question["turns"][j]["content"], images_base_dir)})
             if api_type == "anthropic":
                 output = chat_completion_anthropic(model=endpoint_info.model_name,
@@ -87,6 +94,11 @@ def get_answer(
                                                  messages=conv,
                                                  temperature=temperature,
                                                  max_tokens=max_tokens)
+            elif api_type == "reka":
+                output = chat_completion_reka(model=endpoint_info.model_name,
+                                                 messages=conv,
+                                                 temperature=temperature,
+                                                 max_tokens=max_tokens)
             else:
                 output = chat_completion_openai(model=endpoint_info.model_name, 
                                                 messages=conv, 
@@ -108,16 +120,54 @@ def get_answer(
     }
     
     if len(choices) == len(turns) == 1:
-        metadata = {"token_len": len(encoding.encode(output, 
+        if output:
+            metadata = {"token_len": len(encoding.encode(output, 
                                                      disallowed_special=()))}
-        ans["conv_metadata"] = metadata | count_markdown_elements(remove_pattern(output, 
+            metadata = metadata | count_markdown_elements(remove_pattern(output, 
                                                                      re.compile("```([^`]*)```")),
                                                                  suffix="")
+        else:
+            metadata = {"token_len": 0}
+        ans["conv_metadata"] = metadata
 
     os.makedirs(os.path.dirname(answer_file), exist_ok=True)
     with open(answer_file, "a") as fout:
         fout.write(json.dumps(ans) + "\n")
 
+def get_answer_process(questions_queue: multiprocessing.Queue):
+    while True:
+        item: Optional[QuestionsInfo] = questions_queue.get()
+        if item is None:
+            break
+    
+        with concurrent.futures.ThreadPoolExecutor(max_workers=item.endpoint_info.parallel) as executor:
+            futures = []
+            for index, question in enumerate(item.questions):
+                future = executor.submit(
+                    get_answer,
+                    question, item.model, item.endpoint_info, item.num_choices, item.max_tokens_list[index], item.temperature, item.answer_file, item.api_dict, item.images_base_dir,
+                )
+                futures.append(future)
+
+            for future in tqdm.tqdm(
+                concurrent.futures.as_completed(futures), total=len(futures)
+            ):
+                future.result()
+
+        reorg_answer_file(item.answer_file)
+        print(f"Finished {item.model} for {len(item.questions)} questions")
+
+@dataclass
+class QuestionsInfo:
+    endpoint_info: EndpointInfo
+    questions: List[Dict[str, Any]]
+    model: str
+    num_choices: int
+    max_tokens_list: List[int]
+    temperature: float
+    answer_file: str
+    api_dict: Dict[str, Any]
+    images_base_dir: str
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -136,30 +186,31 @@ if __name__ == "__main__":
     parser.add_argument(
         "--images-base-dir", type=str, default = "", help="Path to the images that model answers to",
     )
+    parser.add_argument(
+        "--num-workers", type=int, default=multiprocessing.cpu_count(), help="Number of workers to generate answers",
+    )
     args = parser.parse_args()
 
     settings = GenAnswerConfig.from_dict(make_config(args.setting_file))
     endpoints_config = EndpointsConfig.from_dict(make_config(args.endpoint_file))
 
-    existing_answer = load_model_answers(os.path.join("data", settings.bench_name, "model_answer"))
+    existing_answer_dir = get_filepath(args.answers_base_dir, os.path.join("data", settings.bench_name, "model_answer"))
+    existing_answer = load_model_answers(existing_answer_dir)
     
     print(settings)
     print(endpoints_config)
 
+    queue = multiprocessing.Queue()
+    num_workers = min(args.num_workers, len(settings.model_list))
     for model in settings.model_list:
-        assert model in endpoints_config.endpoints
+        assert model in endpoints_config.endpoints, f"{model} not found in {endpoints_config.endpoints.keys()}"
         endpoint_info = endpoints_config.endpoints[model]
 
-        if not args.question_file:
-            question_file = os.path.join("data", settings.bench_name, "question.jsonl")
-        else:
-            question_file = args.question_file
+        question_file = get_filepath(args.question_file, os.path.join("data", settings.bench_name, "question.jsonl"))
         questions = load_questions(question_file)
 
-        if not args.answers_base_dir:
-            answer_file = os.path.join("data", settings.bench_name, "model_answer", f"{model}.jsonl")
-        else:
-            answer_file = os.path.join(args.answers_base_dir, f"{model}.jsonl")
+        answer_dir = get_filepath(args.answers_base_dir, os.path.join("data", settings.bench_name, "model_answer"))
+        answer_file = os.path.join(answer_dir, f"{model}.jsonl")
         print(f"Output to {answer_file}")
 
         if endpoint_info.parallel:
@@ -184,32 +235,30 @@ if __name__ == "__main__":
                 max_tokens = [(settings.max_tokens - len(prompt) - 300) for prompt in tokens["input_ids"]]
         else:
             max_tokens = [settings.max_tokens] * len(questions)
+        
+        questions_without_existing_answer = []
+        max_tokens_for_questions_without_existing_answer = []
+        count = 0
+        for index, question in enumerate(questions):
+            if model in existing_answer and question["question_id"] in existing_answer[model]:
+                count += 1
+                continue
+            questions_without_existing_answer.append(question)
+            max_tokens_for_questions_without_existing_answer.append(max_tokens[index])
+        if count > 0:
+            print(f"{count} number of existing answers")
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=parallel) as executor:
-            futures = []
-            count = 0
-            for index, question in enumerate(questions):
-                if model in existing_answer and question["question_id"] in existing_answer[model]:
-                    count += 1
-                    continue
-                future = executor.submit(
-                    get_answer,
-                    question,
-                    model,
-                    endpoint_info,
-                    settings.num_choices,
-                    max_tokens[index],
-                    settings.temperature,
-                    answer_file,
-                    get_endpoint(endpoint_info.endpoints),
-                    args.images_base_dir
-                )
-                futures.append(future)
-            if count > 0:
-                print(f"{count} number of existing answers")
-            for future in tqdm.tqdm(
-                concurrent.futures.as_completed(futures), total=len(futures)
-            ):
-                future.result()
+        questions_info = QuestionsInfo(endpoint_info, questions_without_existing_answer, model, settings.num_choices, max_tokens_for_questions_without_existing_answer, settings.temperature, answer_file, get_endpoint(endpoint_info.endpoints), args.images_base_dir)
+        queue.put(questions_info)
 
-        reorg_answer_file(answer_file)
+    for _ in range(num_workers):
+        queue.put(None)
+
+    workers = []
+    for _ in range(num_workers):
+        worker = multiprocessing.Process(target=get_answer_process, args=(queue,))
+        worker.start()
+        workers.append(worker)
+
+    for worker in workers:
+        worker.join()

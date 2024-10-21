@@ -22,14 +22,14 @@ def load_jsonl(file_path: str) -> List[Dict]:
             conversations.append(orjson.loads(line))
     return conversations
 
-def calculate_score(conversation: Dict) -> int:
-    criteria = conversation.get('category_tag', {}).get('criteria_v0.1', {})
+def calculate_score(conversation: Dict, criteria_key: str) -> int:
+    criteria = conversation.get('category_tag', {}).get(criteria_key, {})
     return sum(1 for value in criteria.values() if value)
 
-def calculate_cluster_scores(conversations: List[Dict], clusters: List[int]) -> Dict[int, float]:
+def calculate_cluster_scores(conversations: List[Dict], clusters: List[int], criteria_key: str) -> Dict[int, float]:
     cluster_scores = {}
     for conv, cluster in zip(conversations, clusters):
-        score = calculate_score(conv)
+        score = calculate_score(conv, criteria_key)
         if cluster not in cluster_scores:
             cluster_scores[cluster] = []
         cluster_scores[cluster].append(score)
@@ -38,12 +38,15 @@ def calculate_cluster_scores(conversations: List[Dict], clusters: List[int]) -> 
     print(f"Cluster to mean score: {cluster_to_mean_score}")
     return cluster_to_mean_score
 
-def filter_prompts(conversations: List[Dict], clusters: List[int], prompt_threshold: int, cluster_threshold: float) -> List[Dict]:
-    cluster_scores = calculate_cluster_scores(conversations, clusters)
+def filter_prompts(conversations: List[Dict], clusters: List[int], prompt_threshold: int, cluster_threshold: float, criteria_key: str) -> List[Dict]:
+    cluster_scores = calculate_cluster_scores(conversations, clusters, criteria_key)
     
     filtered_prompts = []
     for conv, cluster in zip(conversations, clusters):
-        score = calculate_score(conv)
+        if conv["language"] != "English":
+            continue
+
+        score = calculate_score(conv, criteria_key)
         if score >= prompt_threshold and cluster_scores[cluster] >= cluster_threshold:
             conv.update({
                 "prompt_score": score,
@@ -77,6 +80,9 @@ def to_arena_hard_questions_format(conversations: List[Dict], clusters: List[int
             if not is_image_valid:
                 print(f"Image not found: {image_path}, not included in benchmark.")
                 continue
+        elif isinstance(conv["conversation_a"][0]["content"], str):
+            print("Skipping only text prompts")
+            continue
         
         turns_list = []
         turns_list.append({"content": conv["conversation_a"][0]["content"]})
@@ -109,9 +115,12 @@ def to_wandb_table(conversations: List[Dict], image_dir: str) -> wandb.Table:
             wandb_image = wandb.Image(image_path)
             data.append([question, wandb_image, conv["prompt_score"]])
         elif isinstance(conv["conversation_a"][0]["content"], str):
+            print("Skipping only text prompts")
+            continue
             question = conv["conversation_a"][0]["content"]
-            data.append([question, conv["prompt_score"]])
+            data.append([question, None, conv["prompt_score"]])
 
+    print(len(data))
     return wandb.Table(data=data, columns=columns)
 
 def main():
@@ -123,17 +132,19 @@ def main():
     parser.add_argument('--cluster_threshold', type=int, default=3, help='Minimum average score threshold for clusters')
     parser.add_argument('--output_file', type=str, default='filtered_prompts.json', help='Path to save the filtered prompts')
     parser.add_argument('--wandb_project', type=str, default='arena-hard-auto', help='Wandb project name')
+    parser.add_argument('--wandb_entity', type=str, default='clipinvariance', help='Wandb entity name')
+    parser.add_argument('--criteria_key', type=str, default='criteria_vision_v0.1', help='Key to use for criteria')
     parser.add_argument("--topics_file", type=str, default="topics.json", help="Path to the file containing topic cluster numbers to names mapping")
     
     args = parser.parse_args()
 
-    if args.wandb_project:
-        wandb.init(project=args.wandb_project)
+    if args.wandb_project and args.wandb_entity:
+        wandb.init(project=args.wandb_project, entity=args.wandb_entity)
     
     conversations = load_jsonl(args.conversations_file)
     clusters = load_json(args.clusters_file)
     
-    filtered_prompts = filter_prompts(conversations, clusters, args.prompt_threshold, args.cluster_threshold)
+    filtered_prompts = filter_prompts(conversations, clusters, args.prompt_threshold, args.cluster_threshold, args.criteria_key)
     
     arena_hard_questions = to_arena_hard_questions_format(filtered_prompts, clusters, args.topics_file, args.image_dir)
 

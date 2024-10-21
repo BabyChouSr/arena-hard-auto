@@ -1,0 +1,686 @@
+2024-09-18 05:26:39,326 INFO    StreamThr :1913782 [internal.py:wandb_internal():85] W&B internal server running at pid: 1913782, started at: 2024-09-18 05:26:39.325893
+2024-09-18 05:26:39,328 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: status
+2024-09-18 05:26:39,331 INFO    WriterThread:1913782 [datastore.py:open_for_write():87] open: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/run-f4bdi9bm.wandb
+2024-09-18 05:26:39,331 DEBUG   SenderThread:1913782 [sender.py:send():391] send: header
+2024-09-18 05:26:39,335 DEBUG   SenderThread:1913782 [sender.py:send():391] send: run
+2024-09-18 05:26:39,477 INFO    SenderThread:1913782 [dir_watcher.py:__init__():211] watching files in: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files
+2024-09-18 05:26:39,477 INFO    SenderThread:1913782 [sender.py:_start_run_threads():1200] run started: f4bdi9bm with start time 1726637199.327002
+2024-09-18 05:26:39,485 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: run_start
+2024-09-18 05:26:39,486 DEBUG   HandlerThread:1913782 [system_info.py:__init__():26] System info init
+2024-09-18 05:26:39,486 DEBUG   HandlerThread:1913782 [system_info.py:__init__():41] System info init done
+2024-09-18 05:26:39,486 INFO    HandlerThread:1913782 [system_monitor.py:start():194] Starting system monitor
+2024-09-18 05:26:39,486 INFO    SystemMonitor:1913782 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-09-18 05:26:39,486 INFO    HandlerThread:1913782 [system_monitor.py:probe():214] Collecting system info
+2024-09-18 05:26:39,487 INFO    SystemMonitor:1913782 [interfaces.py:start():188] Started cpu monitoring
+2024-09-18 05:26:39,487 INFO    SystemMonitor:1913782 [interfaces.py:start():188] Started disk monitoring
+2024-09-18 05:26:39,488 INFO    SystemMonitor:1913782 [interfaces.py:start():188] Started memory monitoring
+2024-09-18 05:26:39,489 INFO    SystemMonitor:1913782 [interfaces.py:start():188] Started network monitoring
+2024-09-18 05:26:39,498 DEBUG   HandlerThread:1913782 [system_info.py:probe():152] Probing system
+2024-09-18 05:26:39,500 DEBUG   HandlerThread:1913782 [system_info.py:_probe_git():137] Probing git
+2024-09-18 05:26:39,504 DEBUG   HandlerThread:1913782 [system_info.py:_probe_git():145] Probing git done
+2024-09-18 05:26:39,504 DEBUG   HandlerThread:1913782 [system_info.py:probe():200] Probing system done
+2024-09-18 05:26:39,504 DEBUG   HandlerThread:1913782 [system_monitor.py:probe():223] {'os': 'Linux-6.1.0-25-cloud-amd64-x86_64-with-glibc2.36', 'python': '3.12.4', 'heartbeatAt': '2024-09-18T05:26:39.498493', 'startedAt': '2024-09-18T05:26:39.320654', 'docker': None, 'cuda': None, 'args': ('--conversations_file', '/home/babychou/vision_clean_battle_conv_20240822_70k_ts_labels.jsonl', '--clusters_file', '/home/babychou/arena-hard-vl-20k-gpt4o/conv_topics.json', '--image_dir', '/mnt/disks/data/snapshot/serve_images', '--prompt_threshold', '6', '--cluster_threshold', '3', '--output_file', '/home/babychou/arena-hard-vl-20k-gpt4o/bench.jsonl', '--topics_file', '/home/babychou/arena-hard-vl-20k-gpt4o/model_dir/topics.json', '--wandb_entity', 'clipinvariance'), 'state': 'running', 'program': '/home/babychou/arena-hard-auto/BenchBuilder/filter.py', 'codePathLocal': 'filter.py', 'codePath': 'BenchBuilder/filter.py', 'git': {'remote': 'https://github.com/BabyChouSr/arena-hard-auto.git', 'commit': 'b6291cc5fc9a0ea5720b48c4e1c30ce50fb4dd81'}, 'email': 'emu4yolife@gmail.com', 'root': '/home/babychou/arena-hard-auto', 'host': 'leaderboard.c.alpa-373720.internal', 'username': 'babychou', 'executable': '/home/babychou/anaconda3/envs/bench/bin/python', 'cpu_count': 48, 'cpu_count_logical': 96, 'cpu_freq': {'current': 2600.013999999997, 'min': 0.0, 'max': 0.0}, 'cpu_freq_per_core': [{'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}, {'current': 2600.014, 'min': 0.0, 'max': 0.0}], 'disk': {'/': {'total': 984.0530128479004, 'used': 895.0209159851074}}, 'memory': {'total': 755.8763656616211}}
+2024-09-18 05:26:39,504 INFO    HandlerThread:1913782 [system_monitor.py:probe():224] Finished collecting system info
+2024-09-18 05:26:39,504 INFO    HandlerThread:1913782 [system_monitor.py:probe():227] Publishing system info
+2024-09-18 05:26:39,504 DEBUG   HandlerThread:1913782 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2024-09-18 05:26:39,505 ERROR   HandlerThread:1913782 [system_info.py:_save_conda():223] Error saving conda packages: [Errno 2] No such file or directory: 'conda'
+Traceback (most recent call last):
+  File "/home/babychou/anaconda3/envs/bench/lib/python3.12/site-packages/wandb/sdk/internal/system/system_info.py", line 216, in _save_conda
+    subprocess.call(
+  File "/home/babychou/anaconda3/envs/bench/lib/python3.12/subprocess.py", line 389, in call
+    with Popen(*popenargs, **kwargs) as p:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/babychou/anaconda3/envs/bench/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/babychou/anaconda3/envs/bench/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2024-09-18 05:26:39,507 DEBUG   HandlerThread:1913782 [system_info.py:_save_conda():224] Saving conda packages done
+2024-09-18 05:26:39,508 INFO    HandlerThread:1913782 [system_monitor.py:probe():229] Finished publishing system info
+2024-09-18 05:26:39,511 DEBUG   SenderThread:1913782 [sender.py:send():391] send: files
+2024-09-18 05:26:39,511 INFO    SenderThread:1913782 [sender.py:_save_file():1466] saving file wandb-metadata.json with policy now
+2024-09-18 05:26:39,653 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: python_packages
+2024-09-18 05:26:39,653 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: python_packages
+2024-09-18 05:26:39,700 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-18 05:26:39,700 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-18 05:26:39,700 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: stop_status
+2024-09-18 05:26:39,714 INFO    wandb-upload_0:1913782 [upload_job.py:push():130] Uploaded file /tmp/tmpn6fzh5nawandb/uadjd3m5-wandb-metadata.json
+2024-09-18 05:26:39,776 DEBUG   SenderThread:1913782 [sender.py:send():391] send: telemetry
+2024-09-18 05:26:40,478 INFO    Thread-12 :1913782 [dir_watcher.py:_on_file_created():271] file/dir created: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/wandb-metadata.json
+2024-09-18 05:26:40,478 INFO    Thread-12 :1913782 [dir_watcher.py:_on_file_created():271] file/dir created: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/conda-environment.yaml
+2024-09-18 05:26:40,478 INFO    Thread-12 :1913782 [dir_watcher.py:_on_file_created():271] file/dir created: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/requirements.txt
+2024-09-18 05:26:42,478 INFO    Thread-12 :1913782 [dir_watcher.py:_on_file_created():271] file/dir created: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/output.log
+2024-09-18 05:26:44,478 INFO    Thread-12 :1913782 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/output.log
+2024-09-18 05:26:44,654 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: status_report
+2024-09-18 05:26:49,654 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: status_report
+2024-09-18 05:26:49,655 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-18 05:26:54,653 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-18 05:26:54,654 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: stop_status
+2024-09-18 05:26:54,716 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: status_report
+2024-09-18 05:26:54,927 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: log_artifact
+2024-09-18 05:26:54,927 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: log_artifact
+2024-09-18 05:26:54,985 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-18 05:26:55,461 INFO    wandb-upload_44:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpoog655s7
+2024-09-18 05:26:55,461 INFO    wandb-upload_8:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp4fmsk835
+2024-09-18 05:26:55,466 INFO    wandb-upload_25:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_k38jane
+2024-09-18 05:26:55,468 INFO    wandb-upload_36:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpcptk88ub
+2024-09-18 05:26:55,470 INFO    wandb-upload_47:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmps8sgfd6r
+2024-09-18 05:26:55,489 INFO    wandb-upload_61:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpau26955v
+2024-09-18 05:26:55,496 INFO    wandb-upload_7:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpetmusgq8
+2024-09-18 05:26:55,498 INFO    wandb-upload_52:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp7b_shjb3
+2024-09-18 05:26:55,502 INFO    wandb-upload_1:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpx6z0cs_n
+2024-09-18 05:26:55,515 INFO    Thread-12 :1913782 [dir_watcher.py:_on_file_created():271] file/dir created: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/media/table/filtered_prompts_0_15f10b30f459ca917e30.table.json
+2024-09-18 05:26:55,516 INFO    Thread-12 :1913782 [dir_watcher.py:_on_file_created():271] file/dir created: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/media/table
+2024-09-18 05:26:55,516 INFO    Thread-12 :1913782 [dir_watcher.py:_on_file_created():271] file/dir created: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/media
+2024-09-18 05:26:55,520 INFO    wandb-upload_30:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmplv0mqklu
+2024-09-18 05:26:55,535 INFO    wandb-upload_62:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp6rvt3up6
+2024-09-18 05:26:55,536 INFO    wandb-upload_14:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpagi6eu8k
+2024-09-18 05:26:55,538 INFO    wandb-upload_59:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpcdwh7hj8
+2024-09-18 05:26:55,541 INFO    wandb-upload_33:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmptt7wt544
+2024-09-18 05:26:55,542 INFO    wandb-upload_24:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpywg7vq06
+2024-09-18 05:26:55,547 INFO    wandb-upload_32:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmplw4p1imt
+2024-09-18 05:26:55,551 INFO    wandb-upload_20:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpghgs_qo_
+2024-09-18 05:26:55,556 INFO    wandb-upload_50:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmplqo3y9ls
+2024-09-18 05:26:55,557 INFO    wandb-upload_17:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpg5n_qp0o
+2024-09-18 05:26:55,566 INFO    wandb-upload_4:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpnv98sxwe
+2024-09-18 05:26:55,567 INFO    wandb-upload_58:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp4tz8xhwt
+2024-09-18 05:26:55,573 INFO    wandb-upload_5:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpt4apygpn
+2024-09-18 05:26:55,574 INFO    wandb-upload_54:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpiyemzsbe
+2024-09-18 05:26:55,576 INFO    wandb-upload_38:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp5u1x1af3
+2024-09-18 05:26:55,577 INFO    wandb-upload_19:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp34phpt7x
+2024-09-18 05:26:55,577 INFO    wandb-upload_51:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp66jebe_p
+2024-09-18 05:26:55,580 INFO    wandb-upload_45:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpnmng1t3f
+2024-09-18 05:26:55,581 INFO    wandb-upload_53:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpqk3s33kb
+2024-09-18 05:26:55,582 INFO    wandb-upload_49:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpr_hv8anj
+2024-09-18 05:26:55,583 INFO    wandb-upload_3:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmprab3gzkr
+2024-09-18 05:26:55,586 INFO    wandb-upload_16:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpvw1qc76f
+2024-09-18 05:26:55,587 INFO    wandb-upload_12:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpr5nd1a9n
+2024-09-18 05:26:55,589 INFO    wandb-upload_15:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpjcxeohqx
+2024-09-18 05:26:55,589 INFO    wandb-upload_55:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp16z3vedu
+2024-09-18 05:26:55,598 INFO    wandb-upload_42:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpgpzzg2k4
+2024-09-18 05:26:55,601 INFO    wandb-upload_57:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp5f0kakl8
+2024-09-18 05:26:55,603 INFO    wandb-upload_48:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpd6bri8uo
+2024-09-18 05:26:55,603 INFO    wandb-upload_31:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpcmdjhlsw
+2024-09-18 05:26:55,605 INFO    wandb-upload_56:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpy4mj9gzv
+2024-09-18 05:26:55,606 INFO    wandb-upload_0:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp8c1qhb5b
+2024-09-18 05:26:55,607 INFO    wandb-upload_28:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpa00gvrmn
+2024-09-18 05:26:55,607 INFO    wandb-upload_6:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmphbc5dh08
+2024-09-18 05:26:55,608 INFO    wandb-upload_39:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpneiy7i8b
+2024-09-18 05:26:55,608 INFO    wandb-upload_18:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp8pekjzwu
+2024-09-18 05:26:55,611 INFO    wandb-upload_21:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpbz77lw5i
+2024-09-18 05:26:55,612 INFO    wandb-upload_40:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpwxuh6f_6
+2024-09-18 05:26:55,612 INFO    wandb-upload_11:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp859wrdbe
+2024-09-18 05:26:55,615 INFO    wandb-upload_60:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpu0ng6x6_
+2024-09-18 05:26:55,618 INFO    wandb-upload_63:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdomnvuel
+2024-09-18 05:26:55,623 INFO    wandb-upload_26:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp7jwkr6pn
+2024-09-18 05:26:55,625 INFO    wandb-upload_46:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpabjv_89j
+2024-09-18 05:26:55,627 INFO    wandb-upload_44:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp6v_e09ry
+2024-09-18 05:26:55,627 INFO    wandb-upload_35:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpwvj_iuei
+2024-09-18 05:26:55,630 INFO    wandb-upload_8:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp56x_nnx0
+2024-09-18 05:26:55,637 INFO    wandb-upload_13:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp6cdx_b0n
+2024-09-18 05:26:55,637 INFO    wandb-upload_43:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpfc30f4ia
+2024-09-18 05:26:55,640 INFO    wandb-upload_9:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpnrnn3lbt
+2024-09-18 05:26:55,643 INFO    wandb-upload_34:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpac86cjb8
+2024-09-18 05:26:55,644 INFO    wandb-upload_37:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpqzqwzygy
+2024-09-18 05:26:55,646 INFO    wandb-upload_41:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpkzfs9l_s
+2024-09-18 05:26:55,647 INFO    wandb-upload_23:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp6kpkjq95
+2024-09-18 05:26:55,655 INFO    wandb-upload_27:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpne_rxxt9
+2024-09-18 05:26:55,655 INFO    wandb-upload_2:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp4pmdo224
+2024-09-18 05:26:55,656 INFO    wandb-upload_29:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpzlk5gtg4
+2024-09-18 05:26:55,680 INFO    wandb-upload_10:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpla4wcpr9
+2024-09-18 05:26:55,689 INFO    wandb-upload_22:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpqft4_jyn
+2024-09-18 05:26:55,932 INFO    wandb-upload_53:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmphf992pkr
+2024-09-18 05:26:55,935 INFO    wandb-upload_38:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpzri9iar3
+2024-09-18 05:26:55,961 INFO    wandb-upload_52:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpkslp64vi
+2024-09-18 05:26:55,973 INFO    wandb-upload_58:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpzbeb7jnm
+2024-09-18 05:26:55,980 INFO    wandb-upload_15:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpmh2wzet9
+2024-09-18 05:26:55,996 INFO    wandb-upload_16:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmppuu7c0s1
+2024-09-18 05:26:56,000 INFO    wandb-upload_24:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpftlvrmxy
+2024-09-18 05:26:56,002 INFO    wandb-upload_0:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpt76_057m
+2024-09-18 05:26:56,002 INFO    wandb-upload_44:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp8_u1_84p
+2024-09-18 05:26:56,008 INFO    wandb-upload_45:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp4g51wpb0
+2024-09-18 05:26:56,015 INFO    wandb-upload_14:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpwpziu01c
+2024-09-18 05:26:56,018 INFO    wandb-upload_55:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp0lhzcpm5
+2024-09-18 05:26:56,021 INFO    wandb-upload_49:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdsn568oo
+2024-09-18 05:26:56,022 INFO    wandb-upload_9:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp34hx8zay
+2024-09-18 05:26:56,024 INFO    wandb-upload_36:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpmmuv2d80
+2024-09-18 05:26:56,024 INFO    wandb-upload_35:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp8kd4k9iy
+2024-09-18 05:26:56,024 INFO    wandb-upload_33:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpqjyq4oiv
+2024-09-18 05:26:56,025 INFO    wandb-upload_26:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_2irwmkv
+2024-09-18 05:26:56,025 INFO    wandb-upload_46:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp1t79ikwl
+2024-09-18 05:26:56,026 INFO    wandb-upload_57:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpvx_f4d70
+2024-09-18 05:26:56,027 INFO    wandb-upload_18:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmphcex46t8
+2024-09-18 05:26:56,028 INFO    wandb-upload_32:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmplb7mbxoj
+2024-09-18 05:26:56,029 INFO    wandb-upload_31:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpu_9mvbj9
+2024-09-18 05:26:56,029 INFO    wandb-upload_56:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp11a9q7pu
+2024-09-18 05:26:56,029 INFO    wandb-upload_1:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpx58vf4fm
+2024-09-18 05:26:56,034 INFO    wandb-upload_51:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdxpuvxx0
+2024-09-18 05:26:56,040 INFO    wandb-upload_60:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpjsm5t91e
+2024-09-18 05:26:56,049 INFO    wandb-upload_21:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpcy7n0df7
+2024-09-18 05:26:56,058 INFO    wandb-upload_19:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpjel8gcvm
+2024-09-18 05:26:56,065 INFO    wandb-upload_13:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpjjxpv0te
+2024-09-18 05:26:56,074 INFO    wandb-upload_23:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp8pui7bj5
+2024-09-18 05:26:56,083 INFO    wandb-upload_11:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpt_nd4dis
+2024-09-18 05:26:56,083 INFO    wandb-upload_30:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp9uxgfaps
+2024-09-18 05:26:56,084 INFO    wandb-upload_40:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp3s88_wo7
+2024-09-18 05:26:56,087 INFO    wandb-upload_7:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpozwn72ym
+2024-09-18 05:26:56,087 INFO    wandb-upload_5:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpe9_thdqp
+2024-09-18 05:26:56,090 INFO    wandb-upload_6:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpbvlv425h
+2024-09-18 05:26:56,090 INFO    wandb-upload_17:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_d64itl7
+2024-09-18 05:26:56,090 INFO    wandb-upload_20:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpyzvgrccv
+2024-09-18 05:26:56,091 INFO    wandb-upload_22:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpda2rooju
+2024-09-18 05:26:56,093 INFO    wandb-upload_37:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpa2rpzz65
+2024-09-18 05:26:56,096 INFO    wandb-upload_54:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpd62_bgcb
+2024-09-18 05:26:56,099 INFO    wandb-upload_12:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpgls9om6m
+2024-09-18 05:26:56,099 INFO    wandb-upload_63:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp8n0esojm
+2024-09-18 05:26:56,100 INFO    wandb-upload_42:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpd02ot0eq
+2024-09-18 05:26:56,105 INFO    wandb-upload_2:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmphmy8xzil
+2024-09-18 05:26:56,107 INFO    wandb-upload_39:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpw3otrlp8
+2024-09-18 05:26:56,112 INFO    wandb-upload_34:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmprc2okyfi
+2024-09-18 05:26:56,112 INFO    wandb-upload_47:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp8d0bdof5
+2024-09-18 05:26:56,113 INFO    wandb-upload_8:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdq4ss0ms
+2024-09-18 05:26:56,115 INFO    wandb-upload_61:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdjgucg2b
+2024-09-18 05:26:56,118 INFO    wandb-upload_10:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp7okt02mg
+2024-09-18 05:26:56,124 INFO    wandb-upload_25:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpv6b63oh6
+2024-09-18 05:26:56,125 INFO    wandb-upload_48:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpe9nju0sc
+2024-09-18 05:26:56,126 INFO    wandb-upload_50:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmplog8v7t_
+2024-09-18 05:26:56,129 INFO    wandb-upload_43:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpy_0zsi0z
+2024-09-18 05:26:56,131 INFO    wandb-upload_58:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_nfxmwpe
+2024-09-18 05:26:56,131 INFO    wandb-upload_52:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpb_7p3z6l
+2024-09-18 05:26:56,134 INFO    wandb-upload_38:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp44mfb3i_
+2024-09-18 05:26:56,134 INFO    wandb-upload_4:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp5gah57m_
+2024-09-18 05:26:56,135 INFO    wandb-upload_28:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp0mkko2fx
+2024-09-18 05:26:56,141 INFO    wandb-upload_15:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp1ot7oeie
+2024-09-18 05:26:56,148 INFO    wandb-upload_59:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmplroskotl
+2024-09-18 05:26:56,149 INFO    wandb-upload_27:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp7hc1hvhs
+2024-09-18 05:26:56,162 INFO    wandb-upload_53:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp7vlqr8k_
+2024-09-18 05:26:56,166 INFO    wandb-upload_29:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpyq8mjnzv
+2024-09-18 05:26:56,173 INFO    wandb-upload_3:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpe4aveu_9
+2024-09-18 05:26:56,219 INFO    wandb-upload_62:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp0utpul_d
+2024-09-18 05:26:56,219 INFO    wandb-upload_41:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpnszx58b_
+2024-09-18 05:26:56,231 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: poll_exit
+2024-09-18 05:26:56,457 INFO    wandb-upload_22:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmprpkik3_i
+2024-09-18 05:26:56,498 INFO    wandb-upload_45:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmppe8guhre
+2024-09-18 05:26:56,502 INFO    wandb-upload_58:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmphvy09diq
+2024-09-18 05:26:56,502 INFO    wandb-upload_60:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpv9r33jbt
+2024-09-18 05:26:56,513 INFO    wandb-upload_39:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpskitv4t3
+2024-09-18 05:26:56,518 INFO    wandb-upload_52:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp49aaf9qu
+2024-09-18 05:26:56,529 INFO    wandb-upload_14:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpbxe822e_
+2024-09-18 05:26:56,530 INFO    wandb-upload_61:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp2ci1b2j5
+2024-09-18 05:26:56,534 INFO    wandb-upload_26:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpncew7fnw
+2024-09-18 05:26:56,536 INFO    wandb-upload_6:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpcpomx6r_
+2024-09-18 05:26:56,540 INFO    wandb-upload_20:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdulfd44l
+2024-09-18 05:26:56,543 INFO    wandb-upload_44:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp79426tz8
+2024-09-18 05:26:56,543 INFO    wandb-upload_12:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpfqueql6i
+2024-09-18 05:26:56,547 INFO    wandb-upload_55:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpuxgyl8b4
+2024-09-18 05:26:56,548 INFO    wandb-upload_16:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpj6j25mun
+2024-09-18 05:26:56,549 INFO    wandb-upload_30:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpqr6had1v
+2024-09-18 05:26:56,550 INFO    wandb-upload_34:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpm2vehwx3
+2024-09-18 05:26:56,551 INFO    Thread-12 :1913782 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/output.log
+2024-09-18 05:26:56,556 INFO    wandb-upload_31:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp5ac69xgt
+2024-09-18 05:26:56,559 INFO    wandb-upload_10:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp0dhg0jum
+2024-09-18 05:26:56,562 INFO    wandb-upload_57:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpgn4_zgz3
+2024-09-18 05:26:56,567 INFO    wandb-upload_24:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp02mj4j2s
+2024-09-18 05:26:56,569 INFO    wandb-upload_42:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmphsud0p1h
+2024-09-18 05:26:56,570 INFO    wandb-upload_1:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp95x5iqoh
+2024-09-18 05:26:56,572 INFO    wandb-upload_25:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp06mtxwap
+2024-09-18 05:26:56,573 INFO    wandb-upload_8:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpvwuso_n9
+2024-09-18 05:26:56,573 INFO    wandb-upload_49:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmphmltcphr
+2024-09-18 05:26:56,574 INFO    wandb-upload_63:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp1po0jdti
+2024-09-18 05:26:56,576 INFO    wandb-upload_17:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpmjpe69io
+2024-09-18 05:26:56,578 INFO    wandb-upload_48:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp8i5r7x5p
+2024-09-18 05:26:56,579 INFO    wandb-upload_38:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp0s87elrl
+2024-09-18 05:26:56,579 INFO    wandb-upload_56:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpmqs8kul4
+2024-09-18 05:26:56,584 INFO    wandb-upload_50:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpkwcs6_tj
+2024-09-18 05:26:56,585 INFO    wandb-upload_4:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp4sve_xpz
+2024-09-18 05:26:56,586 INFO    wandb-upload_3:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdas3hnw9
+2024-09-18 05:26:56,586 INFO    wandb-upload_35:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpid7y8bf8
+2024-09-18 05:26:56,586 INFO    wandb-upload_15:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmph_ja3aux
+2024-09-18 05:26:56,590 INFO    wandb-upload_27:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpfb7pw9cn
+2024-09-18 05:26:56,590 INFO    wandb-upload_19:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp40vx8y0_
+2024-09-18 05:26:56,592 INFO    wandb-upload_33:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_83he2sd
+2024-09-18 05:26:56,592 INFO    wandb-upload_37:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_8rhosec
+2024-09-18 05:26:56,594 INFO    wandb-upload_43:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp2u5tu9pt
+2024-09-18 05:26:56,596 INFO    wandb-upload_53:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp7i3l5oqt
+2024-09-18 05:26:56,598 INFO    wandb-upload_40:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp4hnon745
+2024-09-18 05:26:56,600 INFO    wandb-upload_0:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpnb3f4jli
+2024-09-18 05:26:56,600 INFO    wandb-upload_2:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpg99rhsz1
+2024-09-18 05:26:56,601 INFO    wandb-upload_23:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpgkxt0xos
+2024-09-18 05:26:56,603 INFO    wandb-upload_41:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpmvctuj5c
+2024-09-18 05:26:56,603 INFO    wandb-upload_7:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpqdwst05t
+2024-09-18 05:26:56,607 INFO    wandb-upload_47:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmprl2mkyb4
+2024-09-18 05:26:56,616 INFO    wandb-upload_36:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpsw_9a7b5
+2024-09-18 05:26:56,625 INFO    wandb-upload_18:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp3ct5c9my
+2024-09-18 05:26:56,629 INFO    wandb-upload_59:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpz5ft_6ii
+2024-09-18 05:26:56,630 INFO    wandb-upload_9:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmptshbwg1t
+2024-09-18 05:26:56,635 INFO    wandb-upload_5:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpipt92zfw
+2024-09-18 05:26:56,635 INFO    wandb-upload_32:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpyt5mae7o
+2024-09-18 05:26:56,639 INFO    wandb-upload_29:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpzkzh_j0v
+2024-09-18 05:26:56,646 INFO    wandb-upload_11:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmph39ws32f
+2024-09-18 05:26:56,648 INFO    wandb-upload_51:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp1lp7n2ib
+2024-09-18 05:26:56,650 INFO    wandb-upload_54:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmphb4hm2ye
+2024-09-18 05:26:56,650 INFO    wandb-upload_22:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpn93vkx1_
+2024-09-18 05:26:56,650 INFO    wandb-upload_46:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpau3kk1iz
+2024-09-18 05:26:56,653 INFO    wandb-upload_62:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp01oms2gq
+2024-09-18 05:26:56,657 INFO    wandb-upload_13:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp63bynbhl
+2024-09-18 05:26:56,678 INFO    wandb-upload_28:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp06qn_r7p
+2024-09-18 05:26:56,683 INFO    wandb-upload_21:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpk4jd2uep
+2024-09-18 05:26:57,013 INFO    wandb-upload_7:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpmocg0jj6
+2024-09-18 05:26:57,014 INFO    wandb-upload_18:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpn6ggupwi
+2024-09-18 05:26:57,019 INFO    wandb-upload_62:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpcrbxy6hf
+2024-09-18 05:26:57,019 INFO    wandb-upload_57:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmphvfmptkg
+2024-09-18 05:26:57,027 INFO    wandb-upload_26:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp53ulzx5j
+2024-09-18 05:26:57,028 INFO    wandb-upload_22:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpb1zzc4k2
+2024-09-18 05:26:57,029 INFO    wandb-upload_38:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_grnd3uf
+2024-09-18 05:26:57,040 INFO    wandb-upload_58:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpheiapi0k
+2024-09-18 05:26:57,041 INFO    wandb-upload_60:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp2u3zzvdu
+2024-09-18 05:26:57,043 INFO    wandb-upload_41:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp3iqnthle
+2024-09-18 05:26:57,044 INFO    wandb-upload_54:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp4q77pw14
+2024-09-18 05:26:57,049 INFO    wandb-upload_8:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp3jvbusjh
+2024-09-18 05:26:57,050 INFO    wandb-upload_42:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpzww22zzl
+2024-09-18 05:26:57,053 INFO    wandb-upload_55:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp5tq5rxdi
+2024-09-18 05:26:57,056 INFO    wandb-upload_32:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp3mj16pws
+2024-09-18 05:26:57,057 INFO    wandb-upload_33:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpu8pzbzko
+2024-09-18 05:26:57,063 INFO    wandb-upload_51:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpanvqan9e
+2024-09-18 05:26:57,066 INFO    wandb-upload_53:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp2gen4dsm
+2024-09-18 05:26:57,069 INFO    wandb-upload_3:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmppagp2tjw
+2024-09-18 05:26:57,070 INFO    wandb-upload_31:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpzliublnx
+2024-09-18 05:26:57,073 INFO    wandb-upload_37:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpcrrg8sy0
+2024-09-18 05:26:57,074 INFO    wandb-upload_4:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpp8ne7n_0
+2024-09-18 05:26:57,075 INFO    wandb-upload_49:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpiq4rwh47
+2024-09-18 05:26:57,077 INFO    wandb-upload_25:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpksi6ykgh
+2024-09-18 05:26:57,078 INFO    wandb-upload_2:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp56_8d0wo
+2024-09-18 05:26:57,078 INFO    wandb-upload_15:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpanp7u4fl
+2024-09-18 05:26:57,081 INFO    wandb-upload_39:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp5py1yjq_
+2024-09-18 05:26:57,083 INFO    wandb-upload_56:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp61a3necp
+2024-09-18 05:26:57,089 INFO    wandb-upload_45:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpjvo_4rwt
+2024-09-18 05:26:57,090 INFO    wandb-upload_48:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpx1rft4kg
+2024-09-18 05:26:57,091 INFO    wandb-upload_12:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmphfq7y8yg
+2024-09-18 05:26:57,092 INFO    wandb-upload_63:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmppkot7343
+2024-09-18 05:26:57,092 INFO    wandb-upload_0:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpypor07zk
+2024-09-18 05:26:57,093 INFO    wandb-upload_46:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpi3nslyj8
+2024-09-18 05:26:57,095 INFO    wandb-upload_43:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp2u7i57j5
+2024-09-18 05:26:57,095 INFO    wandb-upload_35:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpa0vbmf2r
+2024-09-18 05:26:57,099 INFO    wandb-upload_9:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpud3d3w46
+2024-09-18 05:26:57,099 INFO    wandb-upload_50:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp2ta0tiy6
+2024-09-18 05:26:57,102 INFO    wandb-upload_36:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp4h9_2nyv
+2024-09-18 05:26:57,103 INFO    wandb-upload_61:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp37sq7av_
+2024-09-18 05:26:57,105 INFO    wandb-upload_34:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpwtzx7qoi
+2024-09-18 05:26:57,106 INFO    wandb-upload_14:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpji4g1lk3
+2024-09-18 05:26:57,107 INFO    wandb-upload_13:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpj3g_1cs_
+2024-09-18 05:26:57,109 INFO    wandb-upload_59:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpe32x29zw
+2024-09-18 05:26:57,109 INFO    wandb-upload_1:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpz_09nn9i
+2024-09-18 05:26:57,111 INFO    wandb-upload_10:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpz5e6lqrs
+2024-09-18 05:26:57,113 INFO    wandb-upload_5:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp0flac8kh
+2024-09-18 05:26:57,119 INFO    wandb-upload_28:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpyzc935bo
+2024-09-18 05:26:57,136 INFO    wandb-upload_17:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpgxz8rap2
+2024-09-18 05:26:57,138 INFO    wandb-upload_30:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmptduna5aj
+2024-09-18 05:26:57,147 INFO    wandb-upload_6:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmplgyz3iw9
+2024-09-18 05:26:57,147 INFO    wandb-upload_27:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpv1zg3k6p
+2024-09-18 05:26:57,153 INFO    wandb-upload_11:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp6d62h0fx
+2024-09-18 05:26:57,155 INFO    wandb-upload_24:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpwq1peb0a
+2024-09-18 05:26:57,158 INFO    wandb-upload_19:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpjhynv0ai
+2024-09-18 05:26:57,158 INFO    wandb-upload_21:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp0q9780d7
+2024-09-18 05:26:57,162 INFO    wandb-upload_20:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpi0fb5lxb
+2024-09-18 05:26:57,163 INFO    wandb-upload_29:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpop0w61r_
+2024-09-18 05:26:57,171 INFO    wandb-upload_47:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpa6ucn_q8
+2024-09-18 05:26:57,171 INFO    wandb-upload_44:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp6e27oy6p
+2024-09-18 05:26:57,174 INFO    wandb-upload_16:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpqunw1jsh
+2024-09-18 05:26:57,175 INFO    wandb-upload_23:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpwr2p9x7u
+2024-09-18 05:26:57,179 INFO    wandb-upload_40:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpi61z9ixk
+2024-09-18 05:26:57,200 INFO    wandb-upload_52:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpkb9ead_0
+2024-09-18 05:26:57,351 INFO    wandb-upload_25:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmps2_a_fay
+2024-09-18 05:26:57,388 INFO    wandb-upload_39:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdr3qz8tr
+2024-09-18 05:26:57,389 INFO    wandb-upload_42:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmponoh7s8z
+2024-09-18 05:26:57,389 INFO    wandb-upload_53:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpb_2v95bh
+2024-09-18 05:26:57,389 INFO    wandb-upload_46:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpyb4ssx5g
+2024-09-18 05:26:57,398 INFO    wandb-upload_55:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdcdllavn
+2024-09-18 05:26:57,400 INFO    wandb-upload_38:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp5bw_jvo5
+2024-09-18 05:26:57,402 INFO    wandb-upload_41:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpe_vtes6v
+2024-09-18 05:26:57,407 INFO    wandb-upload_35:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp9g9469e6
+2024-09-18 05:26:57,407 INFO    wandb-upload_56:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_iq4hjnw
+2024-09-18 05:26:57,408 INFO    wandb-upload_54:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp0w4yvuzq
+2024-09-18 05:26:57,408 INFO    wandb-upload_60:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp62en0bav
+2024-09-18 05:26:57,410 INFO    wandb-upload_8:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp6_yvv4k3
+2024-09-18 05:26:57,410 INFO    wandb-upload_50:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_kf80euk
+2024-09-18 05:26:57,422 INFO    wandb-upload_9:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpd320cr5h
+2024-09-18 05:26:57,422 INFO    wandb-upload_51:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpsdkgk2b4
+2024-09-18 05:26:57,425 INFO    wandb-upload_37:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmplygf3pcc
+2024-09-18 05:26:57,425 INFO    wandb-upload_26:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmprawm37sq
+2024-09-18 05:26:57,428 INFO    wandb-upload_4:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpr_li61uq
+2024-09-18 05:26:57,428 INFO    wandb-upload_33:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp82p6pdk1
+2024-09-18 05:26:57,430 INFO    wandb-upload_58:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpxagfq1yd
+2024-09-18 05:26:57,432 INFO    wandb-upload_57:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpga_8m5eb
+2024-09-18 05:26:57,432 INFO    wandb-upload_36:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdn5vd653
+2024-09-18 05:26:57,433 INFO    wandb-upload_2:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpb_p87p3b
+2024-09-18 05:26:57,434 INFO    wandb-upload_32:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpzhl5fuow
+2024-09-18 05:26:57,435 INFO    wandb-upload_18:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpn50v16g6
+2024-09-18 05:26:57,435 INFO    wandb-upload_31:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_x4j13ee
+2024-09-18 05:26:57,436 INFO    wandb-upload_3:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpyern5hol
+2024-09-18 05:26:57,436 INFO    wandb-upload_0:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpfncu_joz
+2024-09-18 05:26:57,436 INFO    wandb-upload_63:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpns72mtep
+2024-09-18 05:26:57,437 INFO    wandb-upload_49:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp53dc029l
+2024-09-18 05:26:57,437 INFO    wandb-upload_45:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmprp3ew87q
+2024-09-18 05:26:57,438 INFO    wandb-upload_62:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpqkalr4xb
+2024-09-18 05:26:57,438 INFO    wandb-upload_15:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpxnuri3q3
+2024-09-18 05:26:57,440 INFO    wandb-upload_48:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpclsrqs2u
+2024-09-18 05:26:57,441 INFO    wandb-upload_12:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpgdfx2qrr
+2024-09-18 05:26:57,444 INFO    wandb-upload_7:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpnu3nll30
+2024-09-18 05:26:57,505 INFO    wandb-upload_22:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpmhvwzrgh
+2024-09-18 05:26:57,511 INFO    wandb-upload_43:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpnfnf1mut
+2024-09-18 05:26:57,518 INFO    wandb-upload_61:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp5yin2d6_
+2024-09-18 05:26:57,538 INFO    wandb-upload_10:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp71uz9tzx
+2024-09-18 05:26:57,541 INFO    wandb-upload_5:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp00z3r3fb
+2024-09-18 05:26:57,542 INFO    wandb-upload_24:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp1ac3j4hd
+2024-09-18 05:26:57,542 INFO    wandb-upload_40:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpz3vis53g
+2024-09-18 05:26:57,543 INFO    wandb-upload_1:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpccj_n8h2
+2024-09-18 05:26:57,544 INFO    wandb-upload_34:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpva3q21ai
+2024-09-18 05:26:57,553 INFO    wandb-upload_30:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpjr4efdsp
+2024-09-18 05:26:57,554 INFO    wandb-upload_14:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpw4d2a_zx
+2024-09-18 05:26:57,556 INFO    wandb-upload_28:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp8gja04xj
+2024-09-18 05:26:57,559 INFO    wandb-upload_6:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpnqc979dw
+2024-09-18 05:26:57,561 INFO    wandb-upload_17:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpn7ukiwoa
+2024-09-18 05:26:57,563 INFO    wandb-upload_29:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpu2dvghjq
+2024-09-18 05:26:57,564 INFO    wandb-upload_11:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpk3g9pep3
+2024-09-18 05:26:57,564 INFO    wandb-upload_19:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp0pzylea7
+2024-09-18 05:26:57,565 INFO    wandb-upload_16:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp7x1a9e3t
+2024-09-18 05:26:57,566 INFO    wandb-upload_59:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpnnuyu1j1
+2024-09-18 05:26:57,566 INFO    wandb-upload_20:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp4itpofr1
+2024-09-18 05:26:57,567 INFO    wandb-upload_23:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpkay6p8xo
+2024-09-18 05:26:57,573 INFO    wandb-upload_52:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp4yxy4ejk
+2024-09-18 05:26:57,574 INFO    wandb-upload_47:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp9_g9ym_5
+2024-09-18 05:26:57,577 INFO    wandb-upload_27:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpvvagp7xk
+2024-09-18 05:26:57,578 INFO    wandb-upload_44:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpbjeyjn0n
+2024-09-18 05:26:57,589 INFO    wandb-upload_21:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpwhqodrjp
+2024-09-18 05:26:57,748 INFO    wandb-upload_3:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpy1ebsl78
+2024-09-18 05:26:57,754 INFO    wandb-upload_53:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmppkl3w_ys
+2024-09-18 05:26:57,758 INFO    wandb-upload_36:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpacmvehlx
+2024-09-18 05:26:57,759 INFO    wandb-upload_45:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmppsmlnbmt
+2024-09-18 05:26:57,759 INFO    wandb-upload_62:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpybkgz_9k
+2024-09-18 05:26:57,759 INFO    wandb-upload_41:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpubeilhjn
+2024-09-18 05:26:57,763 INFO    wandb-upload_2:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpene0pn5g
+2024-09-18 05:26:57,782 INFO    wandb-upload_18:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp58gfnqfi
+2024-09-18 05:26:57,783 INFO    wandb-upload_48:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdg2c6txd
+2024-09-18 05:26:57,790 INFO    wandb-upload_26:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp1uc6iibe
+2024-09-18 05:26:57,791 INFO    wandb-upload_8:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_h3p0rjs
+2024-09-18 05:26:57,795 INFO    wandb-upload_54:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp2ce4jr1w
+2024-09-18 05:26:57,795 INFO    wandb-upload_13:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpz_eoqdaq
+2024-09-18 05:26:57,797 INFO    wandb-upload_7:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmprd06faks
+2024-09-18 05:26:57,799 INFO    wandb-upload_31:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpg752dbzo
+2024-09-18 05:26:57,799 INFO    wandb-upload_33:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpyt8fo5z8
+2024-09-18 05:26:57,802 INFO    wandb-upload_50:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmplxsputl6
+2024-09-18 05:26:57,804 INFO    wandb-upload_51:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmppyqyjlsl
+2024-09-18 05:26:57,806 INFO    wandb-upload_4:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpxywf5ivh
+2024-09-18 05:26:57,807 INFO    wandb-upload_12:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpyn_29rxh
+2024-09-18 05:26:57,809 INFO    wandb-upload_32:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpyrfetdwe
+2024-09-18 05:26:57,810 INFO    wandb-upload_15:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmprs33obj0
+2024-09-18 05:26:57,844 INFO    wandb-upload_60:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp0fd72wfi
+2024-09-18 05:26:57,859 INFO    wandb-upload_46:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_wwi10ei
+2024-09-18 05:26:57,859 INFO    wandb-upload_39:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpeja9e0ah
+2024-09-18 05:26:57,867 INFO    wandb-upload_42:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp1txgz3gu
+2024-09-18 05:26:57,872 INFO    wandb-upload_25:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp47q80nr7
+2024-09-18 05:26:57,876 INFO    wandb-upload_55:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpn390v1t7
+2024-09-18 05:26:57,897 INFO    wandb-upload_35:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp8p5e6soe
+2024-09-18 05:26:57,903 INFO    wandb-upload_9:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdlp8y5xe
+2024-09-18 05:26:57,904 INFO    wandb-upload_57:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_59g6dan
+2024-09-18 05:26:57,904 INFO    wandb-upload_0:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpf57gohbc
+2024-09-18 05:26:57,910 INFO    wandb-upload_44:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp43mvykr3
+2024-09-18 05:26:57,911 INFO    wandb-upload_49:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpvnh_ylew
+2024-09-18 05:26:57,922 INFO    wandb-upload_59:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp3t_nv42s
+2024-09-18 05:26:57,922 INFO    wandb-upload_58:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpq25n27t_
+2024-09-18 05:26:57,925 INFO    wandb-upload_21:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp5kiaqag_
+2024-09-18 05:26:57,928 INFO    wandb-upload_24:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpbbkk2qcy
+2024-09-18 05:26:57,929 INFO    wandb-upload_63:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpu_o2c_kd
+2024-09-18 05:26:57,932 INFO    wandb-upload_10:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpoqvm6tuy
+2024-09-18 05:26:57,934 INFO    wandb-upload_61:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdnv7but2
+2024-09-18 05:26:57,936 INFO    wandb-upload_16:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpp7gc250v
+2024-09-18 05:26:57,937 INFO    wandb-upload_19:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpg6bpchjn
+2024-09-18 05:26:57,938 INFO    wandb-upload_29:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpjzf1ok06
+2024-09-18 05:26:57,938 INFO    wandb-upload_20:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp48g8q6fh
+2024-09-18 05:26:57,939 INFO    wandb-upload_5:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpmcpdbqts
+2024-09-18 05:26:57,942 INFO    wandb-upload_56:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp1o2z095n
+2024-09-18 05:26:57,944 INFO    wandb-upload_17:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpef8tv8xd
+2024-09-18 05:26:57,946 INFO    wandb-upload_52:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmph0hq1gl9
+2024-09-18 05:26:57,946 INFO    wandb-upload_6:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp1jbzx0x3
+2024-09-18 05:26:57,950 INFO    wandb-upload_1:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpwvm_6f0t
+2024-09-18 05:26:57,953 INFO    wandb-upload_28:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpqvfqci19
+2024-09-18 05:26:57,954 INFO    wandb-upload_27:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpzfwmt1x4
+2024-09-18 05:26:57,968 INFO    wandb-upload_14:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpvj0zk7l2
+2024-09-18 05:26:57,976 INFO    wandb-upload_22:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpotg0hgw1
+2024-09-18 05:26:57,990 INFO    wandb-upload_43:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpvorlahk7
+2024-09-18 05:26:58,005 INFO    wandb-upload_47:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_xkct5at
+2024-09-18 05:26:58,008 INFO    wandb-upload_23:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpe9rmlqtd
+2024-09-18 05:26:58,014 INFO    wandb-upload_11:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpgj1dkp4b
+2024-09-18 05:26:58,015 INFO    wandb-upload_37:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpk4hi9pvn
+2024-09-18 05:26:58,032 INFO    wandb-upload_40:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp34leorjy
+2024-09-18 05:26:58,034 INFO    wandb-upload_34:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpjwruyrve
+2024-09-18 05:26:58,036 INFO    wandb-upload_30:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpvei94zia
+2024-09-18 05:26:58,038 INFO    wandb-upload_38:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpt6vqdsih
+2024-09-18 05:26:58,049 INFO    wandb-upload_15:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpz6svasfk
+2024-09-18 05:26:58,049 INFO    wandb-upload_13:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpfl8zfhv1
+2024-09-18 05:26:58,061 INFO    wandb-upload_2:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp4vo_9s6r
+2024-09-18 05:26:58,061 INFO    wandb-upload_7:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmprvns7z8t
+2024-09-18 05:26:58,062 INFO    wandb-upload_18:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpecyhu2ve
+2024-09-18 05:26:58,069 INFO    wandb-upload_45:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpklj0pjm3
+2024-09-18 05:26:58,070 INFO    wandb-upload_33:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpqyx9dle7
+2024-09-18 05:26:58,072 INFO    wandb-upload_41:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpssferlr8
+2024-09-18 05:26:58,074 INFO    wandb-upload_8:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpq4oxtg4i
+2024-09-18 05:26:58,076 INFO    wandb-upload_48:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpblco3jqo
+2024-09-18 05:26:58,077 INFO    wandb-upload_51:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpczcczb1f
+2024-09-18 05:26:58,078 INFO    wandb-upload_3:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpft4w2e8v
+2024-09-18 05:26:58,079 INFO    wandb-upload_50:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmprnmbcj85
+2024-09-18 05:26:58,079 INFO    wandb-upload_4:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmprdokskw4
+2024-09-18 05:26:58,080 INFO    wandb-upload_32:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp9icrjm15
+2024-09-18 05:26:58,083 INFO    wandb-upload_26:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpzouowzhl
+2024-09-18 05:26:58,083 INFO    wandb-upload_12:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp6gwp_9tb
+2024-09-18 05:26:58,084 INFO    wandb-upload_53:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmphyfymmst
+2024-09-18 05:26:58,085 INFO    wandb-upload_62:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp5u8mj6tb
+2024-09-18 05:26:58,088 INFO    wandb-upload_31:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp8cnrhv0u
+2024-09-18 05:26:58,088 INFO    wandb-upload_54:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpns0lyzol
+2024-09-18 05:26:58,120 INFO    wandb-upload_36:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpwokukwjo
+2024-09-18 05:26:58,229 INFO    wandb-upload_24:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdizo68dg
+2024-09-18 05:26:58,232 INFO    wandb-upload_6:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpf5trzwy1
+2024-09-18 05:26:58,238 INFO    wandb-upload_4:1913782 [upload_job.py:push():130] Uploaded file /tmp/tmpn6fzh5nawandb/sj64h8l3-media/table/filtered_prompts_0_15f10b30f459ca917e30.table.json
+2024-09-18 05:26:58,249 INFO    wandb-upload_44:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmptnji2t8n
+2024-09-18 05:26:58,249 INFO    wandb-upload_56:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpah6ozycn
+2024-09-18 05:26:58,258 INFO    wandb-upload_5:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp7vpgs3ul
+2024-09-18 05:26:58,264 INFO    wandb-upload_21:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpv2s53_yr
+2024-09-18 05:26:58,264 INFO    wandb-upload_1:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmplyyyjgjf
+2024-09-18 05:26:58,272 INFO    wandb-upload_57:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpf_ahy9e9
+2024-09-18 05:26:58,274 INFO    wandb-upload_16:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpdd3wqbbu
+2024-09-18 05:26:58,274 INFO    wandb-upload_20:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp86mllqv2
+2024-09-18 05:26:58,274 INFO    wandb-upload_52:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp70qntcmm
+2024-09-18 05:26:58,275 INFO    wandb-upload_35:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpxsswguj8
+2024-09-18 05:26:58,275 INFO    wandb-upload_10:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpwvc5fjk8
+2024-09-18 05:26:58,282 INFO    wandb-upload_9:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpq9i8uvzp
+2024-09-18 05:26:58,285 INFO    wandb-upload_14:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpemgucnhy
+2024-09-18 05:26:58,285 INFO    wandb-upload_25:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp1ugmk53v
+2024-09-18 05:26:58,287 INFO    wandb-upload_17:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpgw7ym2pq
+2024-09-18 05:26:58,288 INFO    wandb-upload_63:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpw_9iox6i
+2024-09-18 05:26:58,288 INFO    wandb-upload_61:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmprnxdql7r
+2024-09-18 05:26:58,288 INFO    wandb-upload_58:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpuu01kxkr
+2024-09-18 05:26:58,289 INFO    wandb-upload_22:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmph7ejf7s_
+2024-09-18 05:26:58,289 INFO    wandb-upload_49:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpauftucwd
+2024-09-18 05:26:58,290 INFO    wandb-upload_46:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmptutfn468
+2024-09-18 05:26:58,290 INFO    wandb-upload_39:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpl_xyu4pj
+2024-09-18 05:26:58,290 INFO    wandb-upload_28:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpfv36e6jf
+2024-09-18 05:26:58,290 INFO    wandb-upload_0:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpqlkwf3qb
+2024-09-18 05:26:58,292 INFO    wandb-upload_59:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmppwb3pq7q
+2024-09-18 05:26:58,295 INFO    wandb-upload_42:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp_vedf87j
+2024-09-18 05:26:58,295 INFO    wandb-upload_55:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpfzz3eay_
+2024-09-18 05:26:58,296 INFO    wandb-upload_19:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp00dh92uj
+2024-09-18 05:26:58,297 INFO    wandb-upload_29:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp2yui5iux
+2024-09-18 05:26:58,323 INFO    wandb-upload_60:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpxpz84vbg
+2024-09-18 05:26:58,327 INFO    wandb-upload_27:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp6xq0qc3b
+2024-09-18 05:26:58,350 INFO    wandb-upload_43:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpjesa0ryz
+2024-09-18 05:26:58,372 INFO    wandb-upload_47:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpj6z677yh
+2024-09-18 05:26:58,373 INFO    wandb-upload_18:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpi3uke7gt
+2024-09-18 05:26:58,380 INFO    wandb-upload_33:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpxwmvfk66
+2024-09-18 05:26:58,382 INFO    wandb-upload_50:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp435a_zih
+2024-09-18 05:26:58,391 INFO    wandb-upload_34:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpw79nih6p
+2024-09-18 05:26:58,391 INFO    wandb-upload_2:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp1wf2z1a9
+2024-09-18 05:26:58,393 INFO    wandb-upload_3:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp1_yhhi7t
+2024-09-18 05:26:58,396 INFO    wandb-upload_15:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp06nbvw61
+2024-09-18 05:26:58,398 INFO    wandb-upload_51:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpkatcntzg
+2024-09-18 05:26:58,398 INFO    wandb-upload_40:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp18pjnixb
+2024-09-18 05:26:58,399 INFO    wandb-upload_8:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpfy6zgq1r
+2024-09-18 05:26:58,400 INFO    wandb-upload_11:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpyvl053tf
+2024-09-18 05:26:58,400 INFO    wandb-upload_13:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpyqayevka
+2024-09-18 05:26:58,400 INFO    wandb-upload_38:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp369obov9
+2024-09-18 05:26:58,401 INFO    wandb-upload_37:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpwowk3oej
+2024-09-18 05:26:58,401 INFO    wandb-upload_41:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpcbiyv8hh
+2024-09-18 05:26:58,402 INFO    wandb-upload_7:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp2zqnghvk
+2024-09-18 05:26:58,402 INFO    wandb-upload_48:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpz40_9mwd
+2024-09-18 05:26:58,403 INFO    wandb-upload_23:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpn8bujy5e
+2024-09-18 05:26:58,408 INFO    wandb-upload_45:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmp0iqmxx0d
+2024-09-18 05:26:58,466 INFO    wandb-upload_30:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpl3lhloet
+2024-09-18 05:26:58,783 INFO    SenderThread:1913782 [sender.py:send_request_log_artifact():1537] logged artifact run-f4bdi9bm-filtered_prompts - {'id': 'QXJ0aWZhY3Q6MTIzMzY0Nzc5Mg==', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjQ1NzU5MTY1Mg==', 'latestArtifact': None}}
+2024-09-18 05:26:58,783 DEBUG   SenderThread:1913782 [sender.py:send():391] send: files
+2024-09-18 05:26:58,783 INFO    SenderThread:1913782 [sender.py:_save_file():1466] saving file media/table/filtered_prompts_0_15f10b30f459ca917e30.table.json with policy now
+2024-09-18 05:26:58,783 DEBUG   SenderThread:1913782 [sender.py:send():391] send: history
+2024-09-18 05:26:58,783 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: summary_record
+2024-09-18 05:26:58,785 INFO    SenderThread:1913782 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-18 05:26:58,785 DEBUG   SenderThread:1913782 [sender.py:send():391] send: exit
+2024-09-18 05:26:58,785 INFO    SenderThread:1913782 [sender.py:send_exit():598] handling exit code: 0
+2024-09-18 05:26:58,785 INFO    SenderThread:1913782 [sender.py:send_exit():600] handling runtime: 15
+2024-09-18 05:26:58,785 INFO    SenderThread:1913782 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-18 05:26:58,785 INFO    SenderThread:1913782 [sender.py:send_exit():606] send defer
+2024-09-18 05:26:58,785 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: poll_exit
+2024-09-18 05:26:58,786 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:26:58,786 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 0
+2024-09-18 05:26:58,786 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:26:58,786 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 0
+2024-09-18 05:26:58,786 INFO    SenderThread:1913782 [sender.py:transition_state():626] send defer: 1
+2024-09-18 05:26:58,786 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:26:58,786 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 1
+2024-09-18 05:26:58,787 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:26:58,787 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 1
+2024-09-18 05:26:58,787 INFO    SenderThread:1913782 [sender.py:transition_state():626] send defer: 2
+2024-09-18 05:26:58,787 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:26:58,787 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 2
+2024-09-18 05:26:58,787 INFO    HandlerThread:1913782 [system_monitor.py:finish():203] Stopping system monitor
+2024-09-18 05:26:58,787 DEBUG   SystemMonitor:1913782 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-09-18 05:26:58,787 DEBUG   SystemMonitor:1913782 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-09-18 05:26:58,787 DEBUG   SystemMonitor:1913782 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-09-18 05:26:58,788 INFO    HandlerThread:1913782 [interfaces.py:finish():200] Joined cpu monitor
+2024-09-18 05:26:58,789 INFO    HandlerThread:1913782 [interfaces.py:finish():200] Joined disk monitor
+2024-09-18 05:26:58,789 INFO    HandlerThread:1913782 [interfaces.py:finish():200] Joined memory monitor
+2024-09-18 05:26:58,789 INFO    HandlerThread:1913782 [interfaces.py:finish():200] Joined network monitor
+2024-09-18 05:26:58,790 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:26:58,790 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 2
+2024-09-18 05:26:58,790 INFO    SenderThread:1913782 [sender.py:transition_state():626] send defer: 3
+2024-09-18 05:26:58,791 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:26:58,791 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 3
+2024-09-18 05:26:58,791 DEBUG   SenderThread:1913782 [sender.py:send():391] send: stats
+2024-09-18 05:26:58,791 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:26:58,791 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 3
+2024-09-18 05:26:58,791 INFO    SenderThread:1913782 [sender.py:transition_state():626] send defer: 4
+2024-09-18 05:26:58,791 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:26:58,791 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 4
+2024-09-18 05:26:58,791 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:26:58,791 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 4
+2024-09-18 05:26:58,792 INFO    SenderThread:1913782 [sender.py:transition_state():626] send defer: 5
+2024-09-18 05:26:58,792 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:26:58,792 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 5
+2024-09-18 05:26:58,792 DEBUG   SenderThread:1913782 [sender.py:send():391] send: summary
+2024-09-18 05:26:58,792 INFO    SenderThread:1913782 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-18 05:26:58,792 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:26:58,792 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 5
+2024-09-18 05:26:58,792 INFO    SenderThread:1913782 [sender.py:transition_state():626] send defer: 6
+2024-09-18 05:26:58,792 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:26:58,792 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 6
+2024-09-18 05:26:58,792 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:26:58,792 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 6
+2024-09-18 05:26:58,794 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: status_report
+2024-09-18 05:26:58,854 INFO    SenderThread:1913782 [sender.py:transition_state():626] send defer: 7
+2024-09-18 05:26:58,854 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:26:58,854 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 7
+2024-09-18 05:26:58,854 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:26:58,854 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 7
+2024-09-18 05:26:59,008 INFO    wandb-upload_32:1913782 [upload_job.py:push():130] Uploaded file /tmp/tmpn6fzh5nawandb/2fsya239-media/table/filtered_prompts_0_15f10b30f459ca917e30.table.json
+2024-09-18 05:26:59,234 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: poll_exit
+2024-09-18 05:26:59,564 INFO    Thread-12 :1913782 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/config.yaml
+2024-09-18 05:26:59,564 INFO    Thread-12 :1913782 [dir_watcher.py:_on_file_created():271] file/dir created: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/wandb-summary.json
+2024-09-18 05:27:00,241 INFO    SenderThread:1913782 [sender.py:transition_state():626] send defer: 8
+2024-09-18 05:27:00,241 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: poll_exit
+2024-09-18 05:27:00,241 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:27:00,241 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 8
+2024-09-18 05:27:00,242 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:27:00,242 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 8
+2024-09-18 05:27:00,242 INFO    SenderThread:1913782 [job_builder.py:build():443] Attempting to build job artifact
+2024-09-18 05:27:00,242 INFO    SenderThread:1913782 [job_builder.py:_get_source_type():572] is repo sourced job
+2024-09-18 05:27:00,244 INFO    SenderThread:1913782 [job_builder.py:build():548] adding wandb-job metadata file
+2024-09-18 05:27:00,247 INFO    SenderThread:1913782 [sender.py:transition_state():626] send defer: 9
+2024-09-18 05:27:00,247 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:27:00,247 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 9
+2024-09-18 05:27:00,247 DEBUG   SenderThread:1913782 [sender.py:send():391] send: artifact
+2024-09-18 05:27:00,550 INFO    wandb-upload_53:1913782 [upload_job.py:push():85] Skipped uploading /tmp/tmpcn8awv37/wandb-job.json
+2024-09-18 05:27:00,565 INFO    Thread-12 :1913782 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/output.log
+2024-09-18 05:27:00,597 INFO    wandb-upload_12:1913782 [upload_job.py:push():88] Uploaded file /home/babychou/.local/share/wandb/artifacts/staging/tmpjrgiwljq
+2024-09-18 05:27:01,235 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: poll_exit
+2024-09-18 05:27:01,376 INFO    SenderThread:1913782 [sender.py:send_artifact():1549] sent artifact job-https___github.com_BabyChouSr_arena-hard-auto.git_BenchBuilder_filter.py - {'id': 'QXJ0aWZhY3Q6MTIzMzY0Nzg3OQ==', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjQ1NzM5OTQxNg==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MTIzMzE3OTcyNQ==', 'versionIndex': 0}}}
+2024-09-18 05:27:01,376 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:27:01,376 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 9
+2024-09-18 05:27:01,376 INFO    SenderThread:1913782 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-09-18 05:27:01,565 INFO    SenderThread:1913782 [dir_watcher.py:finish():388] scan: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files
+2024-09-18 05:27:01,566 INFO    SenderThread:1913782 [dir_watcher.py:finish():402] scan save: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/wandb-summary.json wandb-summary.json
+2024-09-18 05:27:01,566 INFO    SenderThread:1913782 [dir_watcher.py:finish():402] scan save: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/conda-environment.yaml conda-environment.yaml
+2024-09-18 05:27:01,566 INFO    SenderThread:1913782 [dir_watcher.py:finish():402] scan save: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/config.yaml config.yaml
+2024-09-18 05:27:01,566 INFO    SenderThread:1913782 [dir_watcher.py:finish():402] scan save: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/wandb-metadata.json wandb-metadata.json
+2024-09-18 05:27:01,566 INFO    SenderThread:1913782 [dir_watcher.py:finish():402] scan save: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/output.log output.log
+2024-09-18 05:27:01,566 INFO    SenderThread:1913782 [dir_watcher.py:finish():402] scan save: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/requirements.txt requirements.txt
+2024-09-18 05:27:01,572 INFO    SenderThread:1913782 [dir_watcher.py:finish():402] scan save: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/media/table/filtered_prompts_0_15f10b30f459ca917e30.table.json media/table/filtered_prompts_0_15f10b30f459ca917e30.table.json
+2024-09-18 05:27:01,572 INFO    SenderThread:1913782 [sender.py:transition_state():626] send defer: 10
+2024-09-18 05:27:01,572 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: poll_exit
+2024-09-18 05:27:01,573 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:27:01,573 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 10
+2024-09-18 05:27:01,573 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:27:01,573 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 10
+2024-09-18 05:27:01,573 INFO    SenderThread:1913782 [file_pusher.py:finish():169] shutting down file pusher
+2024-09-18 05:27:01,696 INFO    wandb-upload_54:1913782 [upload_job.py:push():130] Uploaded file /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/config.yaml
+2024-09-18 05:27:01,702 INFO    wandb-upload_31:1913782 [upload_job.py:push():130] Uploaded file /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/wandb-summary.json
+2024-09-18 05:27:01,709 INFO    wandb-upload_24:1913782 [upload_job.py:push():130] Uploaded file /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/requirements.txt
+2024-09-18 05:27:01,767 INFO    wandb-upload_36:1913782 [upload_job.py:push():130] Uploaded file /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/files/output.log
+2024-09-18 05:27:01,967 INFO    Thread-11 (_thread_body):1913782 [sender.py:transition_state():626] send defer: 11
+2024-09-18 05:27:01,968 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:27:01,968 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 11
+2024-09-18 05:27:01,968 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:27:01,969 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 11
+2024-09-18 05:27:01,969 INFO    SenderThread:1913782 [file_pusher.py:join():175] waiting for file pusher
+2024-09-18 05:27:01,970 INFO    SenderThread:1913782 [sender.py:transition_state():626] send defer: 12
+2024-09-18 05:27:01,970 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:27:01,970 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 12
+2024-09-18 05:27:01,971 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:27:01,971 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 12
+2024-09-18 05:27:01,971 INFO    SenderThread:1913782 [file_stream.py:finish():601] file stream finish called
+2024-09-18 05:27:02,012 INFO    SenderThread:1913782 [file_stream.py:finish():605] file stream finish is done
+2024-09-18 05:27:02,012 INFO    SenderThread:1913782 [sender.py:transition_state():626] send defer: 13
+2024-09-18 05:27:02,013 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:27:02,013 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 13
+2024-09-18 05:27:02,013 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:27:02,013 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 13
+2024-09-18 05:27:02,013 INFO    SenderThread:1913782 [sender.py:transition_state():626] send defer: 14
+2024-09-18 05:27:02,013 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: defer
+2024-09-18 05:27:02,013 INFO    HandlerThread:1913782 [handler.py:handle_request_defer():184] handle defer: 14
+2024-09-18 05:27:02,013 DEBUG   SenderThread:1913782 [sender.py:send():391] send: final
+2024-09-18 05:27:02,013 DEBUG   SenderThread:1913782 [sender.py:send():391] send: footer
+2024-09-18 05:27:02,013 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: defer
+2024-09-18 05:27:02,014 INFO    SenderThread:1913782 [sender.py:send_request_defer():622] handle sender defer: 14
+2024-09-18 05:27:02,014 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: poll_exit
+2024-09-18 05:27:02,014 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: server_info
+2024-09-18 05:27:02,014 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: poll_exit
+2024-09-18 05:27:02,015 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: poll_exit
+2024-09-18 05:27:02,015 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: get_summary
+2024-09-18 05:27:02,015 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: server_info
+2024-09-18 05:27:02,017 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: sampled_history
+2024-09-18 05:27:02,017 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-18 05:27:02,030 DEBUG   SenderThread:1913782 [sender.py:send_request():418] send_request: poll_exit
+2024-09-18 05:27:02,031 INFO    MainThread:1913782 [wandb_run.py:_footer_history_summary_info():4088] rendering history
+2024-09-18 05:27:02,031 INFO    MainThread:1913782 [wandb_run.py:_footer_history_summary_info():4120] rendering summary
+2024-09-18 05:27:02,031 INFO    MainThread:1913782 [wandb_run.py:_footer_sync_info():4047] logging synced files
+2024-09-18 05:27:02,032 DEBUG   HandlerThread:1913782 [handler.py:handle_request():158] handle_request: shutdown
+2024-09-18 05:27:02,032 INFO    HandlerThread:1913782 [handler.py:finish():884] shutting down handler
+2024-09-18 05:27:03,017 INFO    WriterThread:1913782 [datastore.py:close():296] close: /home/babychou/arena-hard-auto/BenchBuilder/wandb/run-20240918_052639-f4bdi9bm/run-f4bdi9bm.wandb
+2024-09-18 05:27:03,031 INFO    SenderThread:1913782 [sender.py:finish():1631] shutting down sender
+2024-09-18 05:27:03,031 INFO    SenderThread:1913782 [file_pusher.py:finish():169] shutting down file pusher
+2024-09-18 05:27:03,031 INFO    SenderThread:1913782 [file_pusher.py:join():175] waiting for file pusher

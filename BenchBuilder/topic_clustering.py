@@ -17,6 +17,46 @@ from bertopic.representation import KeyBERTInspired, MaximalMarginalRelevance, O
 from bertopic.backend import OpenAIBackend
 
 
+def load_jsonl(file_path):
+    with open(file_path, 'r') as file:
+        return [json.loads(line) for line in file]
+    
+def load_json(file_path):
+    with open(file_path, 'r') as file:
+        return json.load(file)
+
+
+def create_post_process_conv(all_convs, args):
+    all_convs_new = []
+    convs = []
+    for row in all_convs:
+        if row["language"] != "English":
+            continue
+        conv = ""
+        for turns in row["conversation_a"]:
+            if turns["role"] == "user":
+                content = turns["content"]
+                if isinstance(content, list):
+                    conv += f"{content[0]}\n"
+                elif isinstance(content, str):
+                    conv += f"{content}\n"
+                else:
+                    raise ValueError(f"Unknown content type: {type(content)}")
+
+        conv = conv.replace("<|endoftext|>", "<| endoftext |>")
+        # if len(conv) <= 32:
+        #     print(f"Skipping conv: {conv}")
+        #     continue
+        convs.append(conv[:10000])
+        row["post_process_conv"] = conv[:10000]
+        all_convs_new.append(row)
+
+    # save convs to file
+    with open(f"{args.output_dir}/post_process_convs.json", "w") as f:
+        json.dump(all_convs_new, f, indent=4)
+    
+    return all_convs_new, convs
+
 def run(args):
     client = openai.OpenAI()
 
@@ -24,44 +64,25 @@ def run(args):
         embeddings = np.load(args.embedding_file, allow_pickle=True)
         if args.post_process_conv is not None:
             all_convs = json.load(open(args.post_process_conv))
+            convs = []
+            for row in all_convs:
+                convs.append(row["post_process_conv"])
         else:
-            raise ValueError("Please provide post process conv file")
+            # Make from scratch
+            all_convs = json.load(open(args.conv_file))
+            all_convs_new, convs = create_post_process_conv(all_convs, args)
 
-        convs = []
-        for row in all_convs:
-            convs.append(row["post_process_conv"])
+        assert len(convs) == embeddings.shape[0], f"Conv length and embedding length do not match: {len(convs)} != {embeddings.shape[0]}"
     else:
-        all_convs = json.load(open(args.conv_file))
+        if args.conv_file.endswith(".jsonl"):
+            all_convs = load_jsonl(args.conv_file)
+        else:
+            all_convs = load_json(args.conv_file)
 
         if args.first_n is not None:
             all_convs = all_convs[:args.first_n]
 
-        all_convs_new = []
-        convs = []
-        for row in all_convs:
-            if row["language"] != "English":
-                continue
-            conv = ""
-            for turns in row["conversation_a"]:
-                if turns["role"] == "user":
-                    content = turns["content"]
-                    if isinstance(content, list):
-                        conv += f"{content[0]}\n"
-                    elif isinstance(content, str):
-                        conv += f"{content}\n"
-                    else:
-                        raise ValueError(f"Unknown content type: {type(content)}")
-            
-            conv = conv.replace("<|endoftext|>", "<| endoftext |>")
-            if len(conv) <= 32:
-                continue
-            convs.append(conv[:10000])
-            row["post_process_conv"] = conv[:10000]
-            all_convs_new.append(row)
-
-        # save convs to file
-        with open(f"{args.output_dir}/post_process_convs.json", "w") as f:
-            json.dump(all_convs_new, f, indent=4)
+        all_convs_new, convs = create_post_process_conv(all_convs, args)
 
         batch_size = 2000
         embeddings = []

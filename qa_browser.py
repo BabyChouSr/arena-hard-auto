@@ -18,6 +18,7 @@ from utils import (
 questions = []
 model_answers = {}
 baseline_model = None
+image_base_dir = ""
 
 model_judgments_normal_single = {}
 model_judgments_math_single = {}
@@ -74,8 +75,8 @@ def post_process_answer(x):
     x = re.sub(newline_pattern2, "\n\g<1>", x)
     return x
 
-
 def pairwise_to_gradio_chat_mds(question, ans_a, ans_b, ans_base=None, turn=None):
+    global image_base_dir
     end = len(question["turns"]) if turn is None else turn + 1
     size = end * 3
 
@@ -84,9 +85,12 @@ def pairwise_to_gradio_chat_mds(question, ans_a, ans_b, ans_base=None, turn=None
         base = i * 3
         if i == 0:
             if isinstance(question["turns"][i]["content"], list):
-                mds[base + 0] = "##### User\n" + question["turns"][i]["content"][0]
+                image_hash = question['turns'][i]['content'][1][0]
+                image_path = os.path.join(image_base_dir, f"{image_hash}.png")
+                image_path = f"file/{image_path}"
+                mds[base + 0] = f"##### User\n![Image]({image_path})\n{question['turns'][i]['content'][0]}"
             else:
-                mds[base + 0] = "##### User\n" + question["turns"][i]["content"]
+                mds[base + 0] = f"##### User\n{question['turns'][i]['content']}"
         else:
             if isinstance(question["turns"][i]["content"], list):
                 mds[base + 0] = "##### User's follow-up question \n" + question["turns"][i]["content"][0]
@@ -218,18 +222,6 @@ def build_pairwise_browser_tab():
 
 
 block_css = """
-#user_question_1 {
-    background-color: #DEEBF7;
-}
-#user_question_2 {
-    background-color: #E2F0D9;
-}
-#reference {
-    background-color: #FFF2CC;
-}
-#model_explanation {
-    background-color: #FBE5D6;
-}
 """
 
 
@@ -357,6 +349,7 @@ if __name__ == "__main__":
     parser.add_argument("--question-file", type=str, default="")
     parser.add_argument("--answers-base-dir", type=str, default="")
     parser.add_argument("--model-judgment-dir", type=str, default="")
+    parser.add_argument("--image-base-dir", type=str, default="")
     args = parser.parse_args()
     print(args)
 
@@ -365,11 +358,12 @@ if __name__ == "__main__":
     question_file = get_filepath(args.question_file, f"data/{configs['bench_name']}/question.jsonl")
     answer_dir = get_filepath(args.answers_base_dir, f"data/{configs['bench_name']}/model_answer")
     pairwise_model_judgment_dir = (
-        get_filepath(os.path.join(args.model_judgment_dir, configs['judge_model']), f"data/{configs['bench_name']}/model_judgment/{configs['judge_model']}")
+        get_filepath(args.model_judgment_dir, f"data/{configs['bench_name']}/model_judgment/{configs['judge_model']}")
     )
     single_model_judgment_dir = (
-        get_filepath(os.path.join(args.model_judgment_dir, configs['judge_model']), f"data/{configs['bench_name']}/model_judgment/{configs['judge_model']}")
+        get_filepath(args.model_judgment_dir, f"data/{configs['bench_name']}/model_judgment/{configs['judge_model']}")
     )
+    image_base_dir = args.image_base_dir
     # Load questions
     questions = load_questions(question_file)
 
@@ -385,5 +379,5 @@ if __name__ == "__main__":
 
     demo = build_demo()
     demo.launch(
-        server_name=args.host, server_port=args.port, share=args.share, max_threads=200
+        server_name=args.host, server_port=args.port, share=args.share, max_threads=200, allowed_paths=[args.image_base_dir]
     )

@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 
 import datetime
+import json
 import argparse
 import os
 
@@ -152,6 +153,7 @@ if __name__ == "__main__":
     parser.add_argument("--markdown-control-only", action="store_true")
     parser.add_argument("--answer-dir", type=str, default="")
     parser.add_argument("--judge-dir", type=str, default="")
+    parser.add_argument("--output-json-file", type=str, default="arena_to_arena_hard.json")
     args = parser.parse_args()
     print(args)
     assert not args.load_bootstrap or (args.load_battles and args.load_bootstrap), "If loading prexisting bootstrapping data, you must also load preexisting battles."
@@ -223,7 +225,7 @@ if __name__ == "__main__":
                 if "token_len" in turn:
                     length += turn["token_len"]
                 else:
-                    length += row["conv_metadata"]["token_len"]
+                    length += row["conv_metadata"].get("token_len", 0)
             length /= len(model_answers[model])
 
         stats.at[i, "avg_tokens"] = int(length)
@@ -267,3 +269,15 @@ if __name__ == "__main__":
         stats = stats.loc[:,col_list]
         stats['date'] = date_str[:4] + '-' + date_str[4:6] + '-' + date_str[6:]
         stats.to_csv(f"leaderboard/arena_hard_leaderboard_{date_str}.csv", index=False)
+
+    # Output leaderboard to json file format
+    if args.output:
+        with open(args.output_json_file, "w") as f:
+            for _, row in stats.iterrows():
+                row_dict = row.to_dict()
+                row_dict["lower"] = row_dict["rating_q025"]
+                row_dict["upper"] = row_dict["rating_q975"]
+                del row_dict["rating_q025"]
+                del row_dict["rating_q975"]
+                json.dump(row_dict, f)
+                f.write("\n")
